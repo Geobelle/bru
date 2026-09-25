@@ -4,7 +4,6 @@ import { Recording } from "@/app/models/recording.model";
 
 export async function POST(req: NextRequest) {
   await connectDB();
-  console.log("connected successfully");
 
   const { voice, text } = await req.json();
   const saved = await Recording.create({

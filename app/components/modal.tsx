@@ -39,7 +39,6 @@ export default function Modal({ setIsModalOpen }: ModalProps) {
       });
 
       const audioUrl = await uploadAudio(audioBlob);
-      console.log(audioUrl);
 
       setAudioUrl(audioUrl);
 
@@ -92,8 +91,7 @@ export default function Modal({ setIsModalOpen }: ModalProps) {
     });
 
     const data = await response.json();
-
-    console.log(data);
+    window.location.reload();
   };
 
   return (
@@ -111,18 +109,18 @@ export default function Modal({ setIsModalOpen }: ModalProps) {
         {!isRecording ? (
           <button
             type="button"
-            className=" flex bg-orange-500 rounded-tl-2xl rounded-br-2xl rounded-tr-xs text-xs rounded-bl-xs text-white items-center shadow-md hover:px-6  px-5 py-2.5 h-fit w-fit"
             onClick={startRecording}
+            className="flex items-center justify-center bg-orange-500 rounded-full w-16 h-16 shadow-md hover:scale-105 transition"
           >
-            Start Recording
+            <div className="w-5 h-5 rounded-full bg-white" />
           </button>
         ) : (
           <button
             type="button"
-            className=" flex bg-orange-500 rounded-tl-2xl rounded-br-2xl rounded-tr-xs text-xs rounded-bl-xs text-white items-center shadow-md hover:px-6  px-5 py-2.5 h-fit w-fit"
             onClick={stopRecording}
+            className="flex items-center justify-center bg-orange-500 rounded-full w-16 h-16 shadow-md animate-pulse shadow-orange-300"
           >
-            Stop Recording
+            <div className="w-5 h-5 rounded-sm bg-white" />
           </button>
         )}
 
@@ -132,7 +130,7 @@ export default function Modal({ setIsModalOpen }: ModalProps) {
         <input
           onChange={(e) => setText(e.target.value)}
           placeholder="insert text here"
-          className=" border w-4/5 h-30 text-base focus:outline-none rounded-sm  text-[#636363] bg-[#EEF2F4] border-[#E9AE9C] my-10 text-start"
+          className=" border w-4/5 h-20 text-base focus:outline-none rounded-sm  text-[#636363] bg-[#EEF2F4] border-[#E9AE9C] my-10 text-start"
           type="text"
         />
         <button

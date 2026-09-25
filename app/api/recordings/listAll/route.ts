@@ -4,7 +4,6 @@ import { Recording } from "@/app/models/recording.model";
 
 export async function GET(req: NextRequest) {
   await connectDB();
-  console.log("connected successfully");
 
   const saved = await Recording.find();
 
